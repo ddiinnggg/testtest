@@ -1,7 +1,6 @@
 function brutefind(arr, time){
 
-    })
-    return all
+
 }
 
 let person1 = [[1020, 1600]];
