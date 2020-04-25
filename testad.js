@@ -12,18 +12,13 @@ function bestop(arr, budget){
     let result = [];
     let newarr = [];
     // remove shit
-    arr.forEach((e, i) => {
-        if(e.fixed){
-            if (budget < e.cost){
-                arr.splice(i, 1);
-            }
-        }
-    });
-    arr.forEach((e) => {
+    for (e of arr){
+        if (e.fixed && budget < e.cost) continue;
         newarr.push([e.aud/e.cost, e]);
-    });
+    }
     newarr.sort((a, b) => (b[0]-a[0]));
     console.log(newarr)
+    console.log(" ========== geag=  = = = == = =")
     newarr.forEach(([w, e]) => {
         let res = {};
         let ncost = 0;
@@ -45,4 +40,4 @@ function bestop(arr, budget){
     return result;
 }
 
-console.log(bestop([new option(1, 1, 10000, 25, 0), new option(2, 1, 12000, 20, 1), new option(3, 2, 5000, 10, 1), new option(4, 3, 8000, 30, 0)], 52))
+console.log(bestop([new option(1, 1, 10000, 25, 0), new option(2, 1, 12000, 20, 1), new option(3, 2, 5000, 10, 1), new option(4, 3, 8000, 30, 0)], 52));
