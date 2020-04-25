@@ -1,12 +1,7 @@
 function brutefind(arr, time){
-    let all = [];
-    arr.forEach((e, i) => {
-        e.forEach((d) => {
-            d.push(i);
-            all.push(d);
-        })
+
     })
-    
+    return all
 }
 
 let person1 = [[1020, 1600]];
