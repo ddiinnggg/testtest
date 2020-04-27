@@ -85,6 +85,7 @@ function find(arr, time, st, ed){
         }
     }
     result.sort((a, b) => a[0]-b[0]);
+    console.log(result)
     let result2 = []
     for (x of result){
         let res = {}
@@ -99,6 +100,7 @@ function find(arr, time, st, ed){
         result2.push(res)
     }
     result2.sort((a, b) => b.max-a.max)
+    console.log(result2)
     return result2[0];
 }
 
