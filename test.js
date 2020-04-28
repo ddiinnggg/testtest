@@ -11,11 +11,10 @@ class avail{
 function find(arr, time, st, ed){
     let newarr = [];
     let uqp = [];
-    // arr.sort((a, b) => a["start"]-b["start"]);
+    arr.sort((a, b) => a["start"]-b["start"]);
     // clean stuff
     for (x of arr){
-        if (x.end <= st) continue;
-        if (x.start >= ed) continue;
+        if (x.end <= st || x.start >= ed) continue;
         if (x.start < st) x.start = st;
         if (x.end > ed) x.end = ed;
         newarr.push(x);
@@ -57,8 +56,6 @@ function find(arr, time, st, ed){
             newarr3.push([x.start, "start", x.pid, []], [x.end, "end", x.pid, []])
         }
     });
-
-
 
     // count 
     let counter = 0;
