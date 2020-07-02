@@ -1,6 +1,6 @@
 class avail{
     constructor(meetID, availID, personID, start, end){
-        this.meethID = meetID;
+        this.meetID = meetID;
         this.aid = availID;
         this.pid = personID;
         this.start = start;
@@ -8,13 +8,15 @@ class avail{
     }
 }
 
-function find(arr, time, st, ed){
+function find(arr, mid, time, st, ed){
     let newarr = [];
     let uqp = [];
+    arr = arr.filter((e) => {return e["meetID"] == mid})
+    console.log(arr)
     arr.sort((a, b) => a["start"]-b["start"]);
     // clean stuff
     for (x of arr){
-        if (x.end <= st || x.start >= ed) continue;
+        if (x.end <= st |x.start >= ed) continue;
         if (x.start < st) x.start = st;
         if (x.end > ed) x.end = ed;
         newarr.push(x);
@@ -115,4 +117,26 @@ let listhing = [
     new avail(1, 10, 5, 1200, 1300)
 ];
 
-console.log(find(listhing, 60, 0800, 1700));
+let newlist = [
+    new avail(1110000001, 1000000001, 1100000001, 1000, 1045),
+    new avail(1110000001, 1000000002, 1100000001, 1030, 1100),
+    new avail(1110000001, 1000000003, 1100000002, 1030, 1115),
+    new avail(1110000001, 1000000004, 1100000002, 1100, 1130),
+    new avail(1110000002, 1000000005, 1100000001, 1000, 1100),
+    new avail(1110000002, 1000000006, 1100000002, 1100, 1200),
+    new avail(1110000002, 1000000007, 1100000003, 1200, 1300),
+    new avail(1110000003, 1000000008, 1100000004, 1000, 1100),
+    new avail(1110000003, 1000000009, 1100000005, 1045, 1230),
+    new avail(1110000003, 1000000010, 1100000006, 1030, 1200),
+    new avail(1110000003, 1000000011, 1100000007, 1100, 1500),
+    new avail(1110000004, 1000000012, 1100000008, 1000, 1100),
+    new avail(1110000004, 1000000013, 1100000009, 1045, 1230),
+    new avail(1110000004, 1000000014, 1100000010, 1030, 1200),
+    new avail(1110000004, 1000000015, 1100000011, 1100, 1500),
+    new avail(1110000004, 1000000016, 1100000012, 1600, 1700)
+] 
+
+console.log(find(newlist, 1110000001, 30, 0, 2359));
+//console.log(find(newlist, 1110000002, 60, 0, 2359));
+//console.log(find(newlist, 1110000003, 15, 0, 2359));
+//console.log(find(newlist, 1110000004, 15, 0, 2359));
